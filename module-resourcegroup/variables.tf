@@ -1,7 +1,11 @@
 variable "name" {
-  default = "azure"
+  description = "Name of the resource group"
   type = string
-  description = "Name of the azure devops project"
+}
+
+variable "location" {
+  description = "region to which we are deploying this resource group"
+  type = string
 }
 
 variable "base_tags" {

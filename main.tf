@@ -3,14 +3,29 @@ module "azuredevops" {
   name = "azure"
 }
 
+module "resourcegroup" {
+  source   = "./module-resourcegroup"
+  name     = local.resource_group
+  location = local.location
+}
 
-# resource "azurerm_container_registry" "main" {
-#   name                = "testContainerRegistryUniqueName"
-#   resource_group_name = "tstate"
-#   location            = "eastus2"
-#   sku                 = "Basic"
-# }
-#
+
+module "containerRegistry" {
+  source         = "./module-azureContainerRegistry"
+  name           = "testContainerRegistry${local.env}"
+  resource_group = local.resource_group
+  location       = local.location
+}
+
+module "kubernetes" {
+  source = "./module-k8s"
+  cluster_name = "${local.resource_group}-k8s"
+
+}
+
+
+
+
 # data "azurerm_client_config" "main" {
 # }
 #
@@ -98,7 +113,7 @@ module "azuredevops" {
 #
 # resource "azuredevops_serviceendpoint_kubernetes" "main" {
 #   project_id                  = "test"
-#   service_endpoint_name       = "three-tier-k8s-${terraform.workspace}"
+#   service_endpoint_name       = "terraform-test-k8s-${terraform.workspace}"
 #   apiserver_url               = "https://${azurerm_kubernetes_cluster.main.fqdn}"
 #   authorization_type          = "Kubeconfig"
 #   kubeconfig {
