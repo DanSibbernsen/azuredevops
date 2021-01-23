@@ -4,7 +4,7 @@ resource "random_id" "acr" {
 
 resource "azurerm_container_registry" "k8s" {
   name                = "${var.resource_group}k8s${random_id.acr.hex}"
-  resource_group_name = var.resource_group
+  resource_group_name = azurerm_resource_group.k8s.name
   location            = var.location
   sku                 = "Basic"
   admin_enabled       = true

@@ -20,7 +20,9 @@ module "containerRegistry" {
 module "kubernetes" {
   source = "./module-k8s"
   cluster_name = "${local.resource_group}-k8s"
-
+  location = local.location
+  resource_group = local.resource_group
+  default_node_pool = local.default_node_pool
 }
 
 
@@ -77,38 +79,6 @@ module "kubernetes" {
 #   resource_group_name   = "tstate"
 #   virtual_network_name  = azurerm_virtual_network.main.name
 #   address_prefixes      = ["10.10.0.0/20"]
-# }
-#
-# resource "azurerm_kubernetes_cluster" "main" {
-#   name                = "testKube"
-#   dns_prefix          = "testKubeSibbernsen"
-#   location            = "eastus2"
-#   resource_group_name = "tstate"
-#
-#   default_node_pool {
-#     name                  = "default"
-#     vm_size               = "Standard_D2_v3"
-#     availability_zones    = [1, 2, 3]
-#     enable_auto_scaling   = false
-#     enable_node_public_ip = false
-#     node_count            = 2
-#     os_disk_size_gb       = 50
-#     vnet_subnet_id        = azurerm_subnet.main.id
-#
-#   }
-#
-#   identity {
-#     type = "SystemAssigned"
-#   }
-#
-#   role_based_access_control {
-#     enabled = true
-#   }
-#
-#   network_profile {
-#     network_plugin = "azure"
-#     network_policy = "calico"
-#   }
 # }
 #
 # resource "azuredevops_serviceendpoint_kubernetes" "main" {

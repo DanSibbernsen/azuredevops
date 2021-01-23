@@ -47,8 +47,8 @@ locals {
   }
 
   resource_group_list = {
-    default = "test-rg"
-    dev     = "test-rg"
+    default = "test"
+    dev     = "test"
   }
 
   cluster_name                      = "threeTierSample-aks-${local.env}"
