@@ -12,3 +12,17 @@ variable "cluster_name" {
   description = "Name of the AKS Cluster to be created"
   type        = string
 }
+
+variable "location" {
+  description = "region to which we are deploying this container registry"
+  type        = string
+}
+
+variable "resource_group" {
+  description = "name of the resource group to which this belongs"
+  type        = string
+}
+
+variable "default_node_pool" {
+  description = "Default Node Pool for this AKS cluster"
+}
