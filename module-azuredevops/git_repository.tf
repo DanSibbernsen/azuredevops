@@ -1,6 +1,6 @@
 resource "azuredevops_git_repository" "main" {
   project_id = azuredevops_project.main.id
-  name = var.repository_name
+  name = "${var.repository_name}-clean"
   initialization {
     init_type = "Clean"
   }
@@ -8,8 +8,10 @@ resource "azuredevops_git_repository" "main" {
 
 resource "azuredevops_git_repository" "main2" {
   project_id = azuredevops_project.main.id
-  name = "${var.repository_name}2"
+  name = "${var.repository_name}-imported"
   initialization {
-    init_type = "Clean"
+    init_type   = "Import"
+    source_type = "Git"
+    source_url  = var.repository_to_import
   }
 }

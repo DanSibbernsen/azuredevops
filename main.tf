@@ -2,6 +2,7 @@ module "azuredevops" {
   source          = "./module-azuredevops"
   project_name    = "azure"
   repository_name = "testRepo"
+  repository_to_import = "https://github.com/DanSibbernsen/terraform-test.git"
 }
 
 # module "resourcegroup" {
