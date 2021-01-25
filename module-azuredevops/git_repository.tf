@@ -8,6 +8,18 @@ resource "azuredevops_git_repository" "main" {
   }
 }
 
+resource "azuredevops_variable_group" "vars" {
+  project_id   = azuredevops_project.main.id
+  name         = "Infrastructure Pipeline Variables"
+  description  = "Managed by Terraform"
+  allow_access = true
+
+  variable {
+    name  = "FOO"
+    value = "BAR"
+  }
+}
+
 resource "azuredevops_build_definition" "build" {
   project_id = azuredevops_project.main.id
   name       = "Sample Build Definition"
@@ -19,8 +31,8 @@ resource "azuredevops_build_definition" "build" {
 
   repository {
     repo_type   = "TfsGit"
-    repo_id     = azuredevops_git_repository.repository.id
-    branch_name = azuredevops_git_repository.repository.default_branch
+    repo_id     = azuredevops_git_repository.main.id
+    branch_name = azuredevops_git_repository.main.default_branch
     yml_path    = "azure-pipelines.yml"
   }
 
