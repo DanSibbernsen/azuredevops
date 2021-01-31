@@ -5,31 +5,6 @@ module "azuredevops" {
   repository_to_import = "https://github.com/DanSibbernsen/terraform-test.git"
 }
 
-# module "resourcegroup" {
-#   source   = "./module-resourcegroup"
-#   name     = local.resource_group
-#   location = local.location
-# }
-#
-#
-# module "containerRegistry" {
-#   source         = "./module-azureContainerRegistry"
-#   name           = "testContainerRegistry${local.env}"
-#   resource_group = local.resource_group
-#   location       = local.location
-# }
-#
-# module "kubernetes" {
-#   source = "./module-k8s"
-#   cluster_name = "${local.resource_group}-k8s"
-#   location = local.location
-#   resource_group = local.resource_group
-#   default_node_pool = local.default_node_pool
-# }
-
-
-
-
 # data "azurerm_client_config" "main" {
 # }
 #
