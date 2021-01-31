@@ -1,8 +1,22 @@
-module "azuredevops" {
+module "devopsForResourceGroups" {
   source          = "./module-azuredevops"
-  project_name    = "azure"
+  project_name    = "terraformTest-resourceGroups"
   repository_name = "testRepo"
-  repository_to_import = "https://github.com/DanSibbernsen/terraform-test.git"
+  repository_to_import = "https://github.com/DanSibbernsen/azureResourceGroup.git"
+}
+
+module "devopsForContainerRegistry" {
+  source          = "./module-azuredevops"
+  project_name    = "terraformTest-ContainerRegistry"
+  repository_name = "testRepo"
+  repository_to_import = "https://github.com/DanSibbernsen/azureContainerRegistry.git"
+}
+
+module "devopsForKubernetes" {
+  source          = "./module-azuredevops"
+  project_name    = "terraformTest-Kubernetes"
+  repository_name = "testRepo"
+  repository_to_import = "https://github.com/DanSibbernsen/azureKubernetes.git"
 }
 
 # data "azurerm_client_config" "main" {
