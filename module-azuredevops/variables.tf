@@ -13,13 +13,12 @@ variable "project_name" {
   description = "Name of the azure devops project"
 }
 
-variable "repository_name" {
-  default     = "testRepo"
-  type        = string
-  description = "name of code repository"
-}
-
 variable "repository_to_import" {
   type = string
   description = "Repository to import, so a link to a site like github"
+}
+
+variable "location" {
+  description = "region to which we are deploying this container registry"
+  type        = string
 }
