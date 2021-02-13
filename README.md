@@ -38,6 +38,7 @@ Note: the initial project, azuredevops, creates Azure Devops Projects, repositor
 ## Terraform basics
 Steps
 <details><summary> login to azure</summary>
+
 ```
 # logs you in to azure. Behind the scenes this is used by terraform
 az login
