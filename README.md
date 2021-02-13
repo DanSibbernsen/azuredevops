@@ -35,6 +35,25 @@ Note: the initial project, azuredevops, creates Azure Devops Projects, repositor
   - location: [Github azureKubernetes](https://github.com/DanSibbernsen/azureKubernetes.git)
   - Purpose: spins up kubernetes cluster. Also creates an acr for use with the kubernetes cluster
 
+## Terraform basics
+Steps
+<details><summary> login to azure</summary>
+```
+# logs you in to azure. Behind the scenes this is used by terraform
+az login
+```
+</details>
 
+<details><summary> Use terraform </summary>
+
+```
+terraform init # initializes terraform looking at backend / provider materials within *.tf files
+terraform plan # reconciles your terraform definitions with the resources in Azure using the tfstate file, and outputs the differences in your current plan
+terraform apply # applies changes to azure. Will prompt after outputting plan
+terraform destroy # destroys resources in Azure.
+```
+</details>
+
+This should be enough to get around this space.
 
 Hope you enjoy this, and please make requests in by creating issues for anything new you'd like to see.
