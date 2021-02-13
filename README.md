@@ -46,6 +46,7 @@ az login
 </details>
 
 <details><summary>Use Personal Access Token for azuredevops repo</summary>
+
 [Guide](https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs/guides/authenticating_using_the_personal_access_token)
 ```
 export AZDO_ORG_SERVICE_URL=https://dev.azure.com/<org_name>
