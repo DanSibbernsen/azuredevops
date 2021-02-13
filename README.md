@@ -19,7 +19,7 @@ Note: the initial project, azuredevops, creates Azure Devops Projects, repositor
 
 - AzureDevOps
   - location: this repository.
-  - Purpose: To create Azure Devops Projects, Repositories, and Pipelines.
+  - Purpose: To create Azure Devops Projects, Repositories, and Pipelines for each of the below projects
   - Terraform resources exercised
     - azure devops project
     - Resource Group used to store the tf state
