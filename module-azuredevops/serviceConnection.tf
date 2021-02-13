@@ -5,14 +5,16 @@ data "azuredevops_project" "main" {
   name = azuredevops_project.main.name
 }
 
+data "azurerm_client_config" "current" {
+}
+
 resource "azuredevops_serviceendpoint_azurerm" "main" {
   project_id                = azuredevops_project.main.id
-  service_endpoint_name     = "ARMFor${var.project_name}"
-  description = "Managed by Terraform"
-  azurerm_spn_tenantid      = data.azurerm_subscription.current.tenant_id
-  azurerm_subscription_id   = data.azurerm_subscription.current.subscription_id
+  service_endpoint_name     = "Subscription-scoped-ARM"
+  description               = "Managed by Terraform"
+  azurerm_spn_tenantid      = data.azurerm_client_config.current.tenant_id
+  azurerm_subscription_id   = data.azurerm_client_config.current.subscription_id
   azurerm_subscription_name = data.azurerm_subscription.current.display_name
-  resource_group            = azurerm_resource_group.main.name
 }
 
 resource "time_sleep" "wait_30_seconds_armconnection" {

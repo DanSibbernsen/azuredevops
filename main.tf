@@ -1,20 +1,20 @@
 module "devopsForResourceGroups" {
   source          = "./module-azuredevops"
-  project_name    = "terraformTest-resourceGroups"
+  project_name    = "tfresourcegroup"
   repository_to_import = "https://github.com/DanSibbernsen/azureResourceGroup.git"
   location = local.location
 }
 
 module "devopsForContainerRegistry" {
   source          = "./module-azuredevops"
-  project_name    = "terraformTest-ContainerRegistry"
+  project_name    = "tfcontainerregistry"
   repository_to_import = "https://github.com/DanSibbernsen/azureContainerRegistry.git"
   location = local.location
 }
 
 module "devopsForKubernetes" {
   source          = "./module-azuredevops"
-  project_name    = "terraformTest-Kubernetes"
+  project_name    = "tfkubernetes"
   repository_to_import = "https://github.com/DanSibbernsen/azureKubernetes.git"
   location = local.location
 }
