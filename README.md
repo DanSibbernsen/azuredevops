@@ -37,7 +37,7 @@ Note: the initial project, azuredevops, creates Azure Devops Projects, repositor
   - Purpose: creates an Azure Container Registry (acr)
 - azureKubernetes
   - location: [Github azureKubernetes](https://github.com/DanSibbernsen/azureKubernetes.git)
-  - Purpose: spins up kubernetes cluster. Also creates an acr for use with the kubernetes cluster
+  - Purpose: spins up a kubernetes cluster. Also creates an acr for use with the kubernetes cluster
 
 ## Terraform basics
 Steps
