@@ -56,6 +56,7 @@ az login
 export AZDO_ORG_SERVICE_URL=https://dev.azure.com/<org_name>
 export AZDO_PERSONAL_ACCESS_TOKEN=<PAT gained from Azure Dev Ops>
 ```
+</details>
 <details><summary> Use terraform </summary>
 
 ```
