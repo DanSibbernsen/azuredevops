@@ -12,6 +12,9 @@ By going through these tutorials you'll learn about how Terraform works, what it
 - update backend.tf's "tstate<number>" with the storage_account_name outputted by the above script.
 
 I recommend forking each of the below repositories and updating links to them within the `repository_to_import` variable in each of the module blocks in main.tf
+- [AzureResourceGroup](https://github.com/DanSibbernsen/azureResourceGroup)
+- [AzureContainerRegistry](https://github.com/DanSibbernsen/azureContainerRegistry)
+- [AzureKubernetes](https://github.com/DanSibbernsen/azureKubernetes)
 
 
 ## Tutorials
